@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">      
+		<title>Maintenance Tracker - Admin Dashboard</title>
+		<link rel="stylesheet" href="static/css/main.css">
+	</head>
+
+	<!--BODY-->
+	<body>
+		<!--Header-->
+		<header>
+			<img src="static/img/company_logo.png" alt="<company-logo>" >
+			<h1>Maintenance Tracker</h1>
+			<nav>
+				<ul>
+					<li><a href="/index.html">SignOut</a></li>
+				</ul>
+			</nav>
+		</header>
+		<!--Main Content-->
+		<section class="content">
+			
+			<!--Request Summary-->
+			<div class="col12">
+				<div>
+					<!--Filter Menu-->
+					<div>
+						<form >
+							<fieldset>
+								<legend>Filter By:</legend>
+								<select name="category">
+			 						<option value="phones">Mobile Phones and Tablets</option>
+			 						<option value="computers">Computers and Appliances</option>
+			  						<option value="cars">Motorcycles & Vehicles</option>
+			 						<option value="home_appliancies">Home Appliances</option>
+								</select>
+									<select name="request_type">
+			 						<option value="phones">Maintenance</option>
+			 						<option value="computers">Repair</option>
+								</select>
+								</select>
+									<select name="request_status">
+			 						<option value="submitted">Submitted</option>
+			 						<option value="inprogress">Inprogress</option>
+			 						<option value="completed">Completed</option>
+								</select>
+								<input type="search" name="request_search">
+								<input type="submit" value="Submit">
+							</fieldset>
+						</form>
+					</div>
+					<!--Request List-->
+					<table>
+  						<tr>
+  							<th>User ID</th>
+						    <th>Title</th>
+						    <th>Type</th> 
+						    <th>Category</th>
+						    <th>Status</th>
+						    <th colspan="4">Actions</th>
+						</tr>
+						</tr>
+						<tr>
+							<td>1001</td>
+						    <td>Rangerover</td>
+						    <td>Repair</td> 
+						    <td>Motorcycles & Vehicles</td>
+						    <td>Completed</td>
+						    <td><img src="static/img/icons/view.png" width="20px" height="20px" alt="inprogress" title="Mark Inprogress"></td>
+						    <td><img src="static/img/icons/view.png" width="20px" height="20px" alt="completed" title="Mark Completed"></td>
+						    <td><img src="static/img/icons/view.png" width="20px" height="20px" alt="discard" title="Discard Request"></td>
+						    <td><img src="static/img/icons/view.png" width="20px" height="20px" alt="view" title="View Details"></td>
+						</tr>
+						<tr>
+							<td>1001</td>
+						    <td>LG Panasonic TV</td>
+						    <td>Repair</td> 
+						    <td>Home Appliances</td>
+						    <td>Submited</td>
+						    <td><img src="static/img/icons/view.png" width="20px" height="20px" alt="inprogress" title="Mark Inprogress"></td>
+						    <td><img src="static/img/icons/view.png" width="20px" height="20px" alt="completed" title="Mark Completed"></td>
+						    <td><img src="static/img/icons/view.png" width="20px" height="20px" alt="discard" title="Discard Request"></td>
+						    <td><img src="static/img/icons/view.png" width="20px" height="20px" alt="view" title="View Details"></td>
+						</tr>
+						<tr>
+							<td>1001</td>
+						   <td>Samsung S4</td>
+						    <td>Maintenance</td> 
+						    <td>Mobile Phones and Tablets</td>
+						    <td>Inprogress</td>
+						    <td><img src="static/img/icons/view.png" width="20px" height="20px" alt="inprogress" title="Mark Inprogress"></td>
+						    <td><img src="static/img/icons/view.png" width="20px" height="20px" alt="completed" title="Mark Completed"></td>
+						    <td><img src="static/img/icons/view.png" width="20px" height="20px" alt="discard" title="Discard Request"></td>
+						    <td><img src="static/img/icons/view.png" width="20px" height="20px" alt="view" title="View Details"></td>
+						</tr>
+					</table>
+				</div>
+				
+			</div>
+		</section>
+		<!--Footer-->
+		<section class="footer">
+
+			<div class="col3">
+				<h4>Our Partners</h4>
+				<ul>
+					<li>Andela Uganda</li>
+					<li>Andela Nigeria</li>
+				</ul>
+
+			</div>
+			<div class="col6">
+				<p>Copyright 2018</p>
+			</div>
+			<div class="col3">
+				<h4>Contact Us</h4>
+				<p>Website: www.maintenancetracker.com</p>
+				<p>Email: admin@maintenancetracker.com</p>
+				<p>Tel: +256772999999</p>
+			</div>
+		</section>
+		
+	</body>
+	
+</html>
