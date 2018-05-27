@@ -8,35 +8,41 @@
 	</head>
 
 	<!--BODY-->
-	<body>
+	<body class="login-page">
+	<div id="container">
 		<!--Header-->
-		<header>
-			<img src="static/img/company_logo.png" alt="<company-logo>" >
-			<h1>Maintenance Tracker</h1>
+		<header class="header">
+			<div class="company-banner">
+				<img src="static/img/company-logo.png" alt="<company-logo>" >
+				<h1>Maintenance Tracker</h1>
+			</div>
+			<!--Navigation-->
 			<nav>
-				<ul>
-					<li><a href="/index.html">Home</a></li>
-					<li><a href="/login_page.html">Login</a></li>
+				<ul class="menu">
+					<li ><a href="/index.html">Home</a></li>
+					<li class="selected"><a href="/registration_page.html">SignUp</a></li>
+					<li ><a href="login_page.html">Login</a></li>
 				</ul>
 			</nav>
 		</header>
 		<!--Main Content-->
-		<section class="content">
+		<section class="content product">
 			<!--Left Sidebar (Products)-->
-			<div class="col3">
+			<div class="col4">
 				<div>
-					<h3> Repair / Maintainance</h3>
-					<img src="static/img/product_img.png" alt="<product logo>">
-					<p>
+					<h2> Repair / Maintainance</h3>
+						<p>
 						Highly professional teams working together to provide the best services to our clients.
 					</p>	
+					<img src="static/img/product_img.jpeg" alt="<product-img>">
+					
 				</div>
+				
 				
 			</div>
 			<!--Registration Form-->
-			<div class="col6">
+			<div class="col4">
 				<div>
-					<h2>Already a User? <a href="/login_page.html">Login</a></h2>
 					<form>
 						<fieldset>
 							<legend>Registration Information : </legend>
@@ -53,26 +59,29 @@
 							<label for="retype_password">Re-Type Password</label>
 							<input type="password" id="retype_password" name="retype_password" placeholder="Re-Type Password">
 							<input type="submit" name="btn_signup" value="SignUp">
+							<h3>Already a User? <a href="/login_page.html">Login</a></h3>
 						</fieldset>
 					</form>
 				</div>
 				
 			</div>
 			<!--Right Sidebar (Clients)-->
-			<div class="col3">
+			<div class="col4 clients">
 				<div>
 					<h2>Our Clients</h2>
-					<img src="static/img/client_logo.png" alt="<client logo>">
 					<p>
 						We have helped companies reach their market potiential by providing quality repair and mantainance
 					</p>
+					<img src="static/img/product_img.jpeg" alt="<client-logo>">
+					
 				</div>
-			</div>
+
+			</div><span class="clear"></span>
 		</section>
 		<!--Footer-->
-		<section class="footer">
+		<footer>
 
-			<div class="col3">
+			<div class="col4">
 				<h4>Our Partners</h4>
 				<ul>
 					<li>Andela Uganda</li>
@@ -80,16 +89,19 @@
 				</ul>
 
 			</div>
-			<div class="col6">
+			<div class="col4">
 				<p>Copyright 2018</p>
 			</div>
-			<div class="col3">
+			<div class="col4 ">
 				<h4>Contact Us</h4>
-				<p>Website: www.maintenancetracker.com</p>
-				<p>Email: admin@maintenancetracker.com</p>
-				<p>Tel: +256772999999</p>
+				<ul>
+					<li>Website: www.maintenancetracker.com</li>
+					<li>Email: admin@maintenancetracker.com</li>
+					<li>Tel: +256772999999</li>
+				</ul>
 			</div>
-		</section>
+			<span class="clear"></span>
+		</footer>
 		
 	</body>
 	

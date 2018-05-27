@@ -8,14 +8,18 @@
 	</head>
 
 	<!--BODY-->
-	<body>
+	<body class="login-page">
+	<div id="container">
 		<!--Header-->
-		<header>
-			<img src="static/img/company_logo.png" alt="<company-logo>" >
-			<h1>Maintenance Tracker</h1>
+		<header class="header">
+			<div class="company-banner">
+				<img src="static/img/company-logo.png" alt="<company-logo>" >
+				<h1>Maintenance Tracker</h1>
+			</div>
+			<!--Navigation-->
 			<nav>
-				<ul>
-					<li><a href="/index.html">SignOut</a></li>
+				<ul class="menu">
+					<li ><a href="/index.html">SignOut</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -23,11 +27,11 @@
 		<section class="content">
 			
 			<!--Request Summary-->
-			<div class="col12">
+			<div class="col12 table">
 				<div>
 					<!--Filter Menu-->
-					<div>
-						<form >
+					<div >
+						<form class="filter">
 							<fieldset>
 								<legend>Filter By:</legend>
 								<select name="category">
@@ -47,7 +51,7 @@
 			 						<option value="completed">Completed</option>
 								</select>
 								<input type="search" name="request_search">
-								<input type="submit" value="Submit">
+								<input id="filter-btn" type="submit" value="Submit">
 							</fieldset>
 						</form>
 					</div>
@@ -74,7 +78,7 @@
 						    <td><img src="static/img/icons/view.png" width="20px" height="20px" alt="view" title="View Details"></td>
 						</tr>
 						<tr>
-							<td>1001</td>
+							<td>1002</td>
 						    <td>LG Panasonic TV</td>
 						    <td>Repair</td> 
 						    <td>Home Appliances</td>
@@ -85,7 +89,7 @@
 						    <td><img src="static/img/icons/view.png" width="20px" height="20px" alt="view" title="View Details"></td>
 						</tr>
 						<tr>
-							<td>1001</td>
+							<td>1003</td>
 						   <td>Samsung S4</td>
 						    <td>Maintenance</td> 
 						    <td>Mobile Phones and Tablets</td>
@@ -98,12 +102,12 @@
 					</table>
 				</div>
 				
-			</div>
+			</div><span class="clear"></span>
 		</section>
 		<!--Footer-->
-		<section class="footer">
+		<footer>
 
-			<div class="col3">
+			<div class="col4">
 				<h4>Our Partners</h4>
 				<ul>
 					<li>Andela Uganda</li>
@@ -111,16 +115,19 @@
 				</ul>
 
 			</div>
-			<div class="col6">
+			<div class="col4">
 				<p>Copyright 2018</p>
 			</div>
-			<div class="col3">
+			<div class="col4 ">
 				<h4>Contact Us</h4>
-				<p>Website: www.maintenancetracker.com</p>
-				<p>Email: admin@maintenancetracker.com</p>
-				<p>Tel: +256772999999</p>
+				<ul>
+					<li>Website: www.maintenancetracker.com</li>
+					<li>Email: admin@maintenancetracker.com</li>
+					<li>Tel: +256772999999</li>
+				</ul>
 			</div>
-		</section>
+			<span class="clear"></span>
+		</footer>
 		
 	</body>
 	
