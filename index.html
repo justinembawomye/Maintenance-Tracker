@@ -19,8 +19,8 @@
 			<!--Navigation-->
 			<nav>
 				<ul class="menu">
-					<li class="selected"><a href="/index.html">Home</a></li>
-					<li><a href="/registration_page.html">SignUp</a></li>
+					<li class="selected"><a href="index.html">Home</a></li>
+					<li><a href="registration_page.html">SignUp</a></li>
 					<li><a href="login_page.html">Login</a></li>
 				</ul>
 			</nav>
@@ -34,8 +34,10 @@
 				</p>
 				<h1 class="page-title">Repair / Maintenance  <strong>MAINTENANCE TRACKER</strong> </h1>
 				<div>
-					<input class="btn-large" type="submit"  name="login-btn" value="Login"/>
-					<input class="btn-large" type="submit" name ="signup-btn" value="SignUp"/>
+					<form>
+						<button class="btn-large" type="submit"  name="login-btn" formaction="login_page.html">Login</button>
+						<button class="btn-large" type="submit" name ="signup-btn" value="SignUp" formaction="registration_page.html">SignUp</button>
+					</form>
 				</div>
 			</div>
 		</section>
