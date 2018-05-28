@@ -71,7 +71,7 @@ p,h1,h2,h3,h4,label,legend,.col4 li,table{
 	margin-left: 15px,
 }
 .company-banner img,.company-banner h1{
-	float: left;
+	display: inline-block;
 }
 /***********End*************/
 
