@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">      
+		<title>Maintenance Tracker - Admin Dashboard</title>
+		<link rel="stylesheet" href="static/css/main.css">
+	</head>
+
+	<!--BODY-->
+	<body class="login-page">
+	<div id="container">
+		<!--Header-->
+		<header class="header">
+			<div class="company-banner">
+				<img src="static/img/company-logo.png" alt="<company-logo>" >
+				<h1>Maintenance Tracker</h1><span class="clear"></span>
+			</div>
+			<!--Navigation-->
+			<nav>
+				<ul class="menu">
+					<li><a href="admin_dashboard.html">Dashboard</a></li>
+					<li class="selected"><a href="#">Manage Users</a></li>
+					<li ><a href="index.html">SignOut</a></li>
+				</ul>
+			</nav>
+		</header>
+		<!--Main Content-->
+		<section class="content">
+			
+			<!--Request Summary-->
+			<div class="col9 table">
+				<div>
+					<!--Filter Menu-->
+					<div >
+						<form class="filter">
+							<fieldset>
+								<legend>Filter By:</legend>
+									<select name="account_status">
+			 							<option value="active">Active</option>
+			 							<option value="disabled">Disabled</option>
+									</select>
+									<select name="user_type">
+			 							<option value="phones">User</option>
+			 							<option value="computers">Admin</option>
+									</select>
+								<input type="search" name="request_search">
+								<input id="filter-btn" type="submit" value="Submit">
+							</fieldset>
+						</form>
+					</div>
+					<!--Request List-->
+					<table>
+  						<tr>
+  							<th>User ID</th>
+						    <th>Username</th>
+						    <th>Account Type</th>
+						    <th>E-mail</th> 
+						    <th>Status</th>
+						    <th colspan="4">Actions</th>
+						</tr>
+						</tr>
+						<tr>
+							<td>3002</td>
+						    <td>David123</td>
+						    <td>Admin</td>
+						    <td>david@gmail.com</td> 
+						    <td>Active</td>
+						    <td><img src="static/img/icons/delete.png" width="20px" height="20px" alt="discard" title="Delete User"></td>
+						</tr>
+						<tr>
+							<td>3001</td>
+						    <td>Peter2017</td>
+						    <td>Admin</td>
+						    <td>peter@gmail.com</td> 
+						    <td>Active</td>
+						    <td><img src="static/img/icons/delete.png" width="20px" height="20px" alt="discard" title="Delete User"></td>
+						</tr>
+						<tr>
+							<td>3004</td>
+						    <td>Sammy101</td>
+						    <td>User</td>
+						    <td>samy101@gmail.com</td> 
+						    <td>Disabled</td>
+						    <td><img src="static/img/icons/delete.png" width="20px" height="20px" alt="discard" title="Delete User"></td>
+
+						</tr>
+						<tr>
+							<td>3006</td>
+						    <td>Jackie1</td>
+						    <td>User</td>
+						    <td>jack@gmail.com</td> 
+						    <td>Active</td>
+						    <td><img src="static/img/icons/delete.png" width="20px" height="20px" alt="discard" title="Delete User"></td>
+						    
+						</tr>
+					</table>
+				</div>
+				
+			</div>
+			<!--Request Form-->
+			<div class="col3">
+				<div>
+					<h2>Create New Account</h2>
+					<form>
+						<fieldset >
+							<legend>Account Information : </legend>
+							<label for="username">User Name: </label>
+							<input id="username" type="text" name="username" placeholder="Mike999">
+							<label for="account_type">Account Type: </label>
+							<select name="account_type" id="account_type">
+								<option value="user">User</option>
+	 							<option value="admin">Admin</option>
+							</select>
+							<label for="email">E-Mail: </label>
+							<input type="email" name="email" id="email">
+							<label for="comments">Comments: </label>
+							<textarea name="comments id="comments" rows ="10" placeholder="Comments">
+							</textarea>
+							<input type="submit" name="btn_create_new_user" value="Create New User">
+						</fieldset>
+					</form>
+					
+				</div><span class="clear"></span>
+		</section>
+		<!--Footer-->
+		<footer>
+
+			<div class="col4">
+				<h4>Our Partners</h4>
+				<ul>
+					<li>Andela Uganda</li>
+					<li>Andela Nigeria</li>
+				</ul>
+
+			</div>
+			<div class="col4">
+				<p>Copyright 2018</p>
+			</div>
+			<div class="col4 ">
+				<h4>Contact Us</h4>
+				<ul>
+					<li>Website: www.maintenancetracker.com</li>
+					<li>Email: admin@maintenancetracker.com</li>
+					<li>Tel: +256772999999</li>
+				</ul>
+			</div>
+			<span class="clear"></span>
+		</footer>
+		
+	</body>
+	
+</html>
