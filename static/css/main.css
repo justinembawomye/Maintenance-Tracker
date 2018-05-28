@@ -244,8 +244,3 @@ tr:nth-child(odd){background-color: #2980b9}
 	min-height: 500px;
 }
 /******************End*****************/
-
-/*******Admin Dashboard******/
-.icons img{
-	margin:  15px 0 15px 0;
-}
