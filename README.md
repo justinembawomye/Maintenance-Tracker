@@ -30,3 +30,12 @@ Go to [Maintenance-Tracker](https://besufekadsm.github.io/Maintenance-Tracker/)
 ## How to Contribute
 1. Download and install Git
 2. Clone the repo `git clone https://github.com/Besufekadsm/Maintenance-Tracker.git`
+
+## ScreenShots
+
+![alt text](https://besufekadsm.github.io/Maintenance-Tracker/design/UI/UI_homepage.png)
+![alt text](https://besufekadsm.github.io/Maintenance-Tracker/design/UI/UI_login.png)
+![alt text](https://besufekadsm.github.io/Maintenance-Tracker/design/UI/UI_register.png)
+![alt text](https://besufekadsm.github.io/Maintenance-Tracker/design/UI/UI_user_dashboard.png)
+![alt text](https://besufekadsm.github.io/Maintenance-Tracker/design/UI/UI_admin_dashboard.png)
+![alt text](https://besufekadsm.github.io/Maintenance-Tracker/design/UI/UI_manage_users.png)
