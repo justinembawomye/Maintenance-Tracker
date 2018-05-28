@@ -29,4 +29,4 @@ Go to [Maintenance-Tracker](https://besufekadsm.github.io/Maintenance-Tracker/)
 
 ## How to Contribute
 1. Download and install Git
-2. Clone the repo `git clone https://github.com/Besufekadsm/Maintenance-Tracker.git`
+2. Clone the repo `https://github.com/Besufekadsm/Maintenance-Tracker.git`
