@@ -1,0 +1,5 @@
+{
+  "TestFlaskAppRequests.py::TestCase": true,
+  "TestFlaskAppRequests.py::TestFlaskUserRequests": true,
+  "TestFlaskAppRequests.py::TestFlaskUserRequests::test_api_requests": true
+}

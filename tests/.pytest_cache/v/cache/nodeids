@@ -1,0 +1,4 @@
+[
+  "TestFlaskAppRequests.py::TestFlaskUserRequests::test_api_requests",
+  "TestFlaskAppRequests.py::TestFlaskUserRequests::test_index"
+]
