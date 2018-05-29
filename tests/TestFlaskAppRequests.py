@@ -16,9 +16,10 @@ class TestFlaskUserRequests(TestCase):
 		assert "200 OK" ==response.status
 
 	def test_api_requests(self):
-		response= self.client.get('/')
+		response= self.client.get('/api/v1/requests')
 		test_request = UserRequest(20003,"Range Rover","Repair","Cars","Completed").testDictionary()
 		test_request2 = UserRequest(20004,"Samsung S7","Repair","Phones and Tablet","In Progress").testDictionary()
+		assert "200 OK" ==response.status
 		self.assertEquals(response.json, [test_request,test_request2])
 
    
