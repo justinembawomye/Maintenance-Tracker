@@ -28,7 +28,7 @@ create_request_fail={
         }
 create_request_successful={
         'success':True,
-        'message':"Your request was submitted login_successfully.",
+        'message':"Your request was submitted successfully.",
         'token':123
         }
 requests = [{'id': 20003,'title': u'Range Rover','type': u'Repair','category': u'Cars','status':u'Completed'},{'id': 20004,'title': u'Samsung S7','type': u'Repair','category': u'Phones and Tablet','status':u'In Progress'}]
@@ -82,7 +82,7 @@ def api_get_logged_in_user_requests(requestId):
         return jsonify(auth_fail)
 
 @app.route('/api/v1/users/requests', methods=['POST'])
-def api_login():
+def api_create_request():
     data = request.args
     requestTitle=data.get("title")
     requestType = data.get("type")
@@ -95,11 +95,34 @@ def api_login():
         return jsonify(auth_fail)
 
     if token == '123':
-        if requestTitle!=null and requestType!=null and requestCategory!=null and requestStatus!=null:
+        if requestTitle!= None and requestType!= None and requestCategory!= None and requestStatus!= None:
             return jsonify(create_request_successful)
         else:
             return jsonify(create_request_fail)
     else:
+        return jsonify(auth_fail)
+
+@app.route('/api/v1/users/requests/<requestId>', methods=['PUT'])
+def api_modify_request(requestId):
+    data = request.args
+    requestTitle=data.get("title")
+    requestType = data.get("type")
+    requestCategory=data.get("category")
+    requestStatus=data.get("status")
+
+    try:
+        token = request.headers["Authorization"]
+    except:
+        return jsonify(auth_fail)
+
+    if token == '123':
+        if int(requestId) < len(requests) and int(requestId) >= 0:   
+            if requestTitle!= None and requestType!= None and requestCategory!= None and requestStatus!= None:
+                return jsonify(create_request_successful)
+            else:
+                return jsonify(create_request_fail)
+        else:
+            return jsonify(request_fail)
         return jsonify(auth_fail)
 
 if __name__ == '__main__':
