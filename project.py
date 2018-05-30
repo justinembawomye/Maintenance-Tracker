@@ -18,6 +18,10 @@ auth_fail={
         'success':False,
         'message':"You are not authorised to access this page."
         }
+request_fail={
+        'success':False,
+        'message':"Not a valid Request ID."
+        }
 requests = [{'id': 20003,'title': u'Range Rover','type': u'Repair','category': u'Cars','status':u'Completed'},{'id': 20004,'title': u'Samsung S7','type': u'Repair','category': u'Phones and Tablet','status':u'In Progress'}]
 
 
@@ -42,7 +46,7 @@ def api_login():
 
 
 @app.route('/api/v1/requests')
-def get_requests():
+def api_get_requests():
     try:
         token = request.headers["Authorization"]
     except:
@@ -53,11 +57,20 @@ def get_requests():
     else:
         return jsonify(auth_fail)
 
-@app.route('/requests', methods=['POST'])
-def add_request():
+@app.route('/api/v1/users/requests/<requestId>', methods=['GET'])
+def api_get_logged_in_user_requests(requestId):
+    try:
+        token = request.headers["Authorization"]
+    except:
+        return jsonify(auth_fail)
 
-    requests.append(request.get_json())
-    return '', 204
+    if token == '123':
+        if int(requestId) < len(requests) and int(requestId) >= 0:   
+            return jsonify(requests[int(requestId)])
+        else:
+            return jsonify(request_fail)
+    else:
+        return jsonify(auth_fail)
 
 if __name__ == '__main__':
     app.run(debug=True)
