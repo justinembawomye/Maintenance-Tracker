@@ -1,6 +1,6 @@
 from flask_testing import TestCase
 from app.models.UserRequest import UserRequest 
-from routes import app
+from project import app
 import unittest
 import json
 
@@ -16,11 +16,16 @@ class TestFlaskUserRequests(TestCase):
 		assert "200 OK" ==response.status
 
 	def test_api_requests(self):
-		response= self.client.get('/api/v1/requests')
+		response= self.client.get('/api/v1/requests', headers={'token': 'Bearer 123'})
 		test_request = UserRequest(20003,"Range Rover","Repair","Cars","Completed").testDictionary()
 		test_request2 = UserRequest(20004,"Samsung S7","Repair","Phones and Tablet","In Progress").testDictionary()
 		assert "200 OK" ==response.status
 		self.assertEquals(response.json, [test_request,test_request2])
+		self.assertEquals(response., 'Bearer 123')
 
+
+	#Get Response Methods
+	def requests():
+		return self.client.get('/api/v1/requests')	
    
 

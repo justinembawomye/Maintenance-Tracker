@@ -8,12 +8,14 @@ class UserRequest:
 
 	def testDictionary(self):
 		self.testData ={}
-		self.testData['id']=self.requestId
-		self.testData['title']=self.requestTitle
-		self.testData['type']=self.requestType
-		self.testData['category']=self.requestCategory
-		self.testData['status']=self.requestStatus
-		return 	str(self.testData)
+		
+		return 	{
+		'id' : self.requestId,
+		'title' : self.requestTitle,
+		'type' : self.requestType,
+		'category' : self.requestCategory,
+		'status' : self.requestStatus
+		}
 
 
 
