@@ -34,4 +34,3 @@ class TestRegisterUser:
             data = json.loads(response.data.decode())
             self.assertEqual(response.status_code, 400)
             self.assertEqual(data['message'], 'Missing required parameters.')
-
