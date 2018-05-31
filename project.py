@@ -66,7 +66,7 @@ def api_get_requests():
     else:
         return jsonify(auth_fail)
 
-@app.route('/api/v1/users/requests/<requestId>', methods=['GET','POST'])
+@app.route('/api/v1/users/requests/<requestId>', methods=['GET'])
 def api_get_logged_in_user_requests(requestId):
     try:
         token = request.headers["Authorization"]
@@ -81,7 +81,7 @@ def api_get_logged_in_user_requests(requestId):
     else:
         return jsonify(auth_fail)
 
-@app.route('/api/v1//users/requests', methods=['POST','GET'])
+@app.route('/api/v1/users/requests', methods=['POST'])
 def api_create_request():
     data = request.args
     requestTitle=data.get("title")

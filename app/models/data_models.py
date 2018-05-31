@@ -12,7 +12,7 @@ class UserLogin:
 	def onSuccess(self):
 		return{
 		'success':true
-		'message':"Logined in Succesfully."
+		'message':"Login in Succesfully."
 		'token':123
 		}
 	def onFailure(self):
