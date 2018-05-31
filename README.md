@@ -1,4 +1,9 @@
 # Maintenance-Tracker 
+---
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9eb767981d1445b2899f8df277ec9a92)](https://www.codacy.com/app/Besufekadsm/Maintenance-Tracker?utm_source=github.com&utm_medium=referral&utm_content=Besufekadsm/Maintenance-Tracker&utm_campaign=badger)
+[![Build Status](https://travis-ci.org/Besufekadsm/Maintenance-Tracker.svg?branch=master)](https://travis-ci.org/Besufekadsm/Maintenance-Tracker)
+[![Coverage Status](https://coveralls.io/repos/github/Besufekadsm/Maintenance-Tracker/badge.svg?branch=master)](https://coveralls.io/github/Besufekadsm/Maintenance-Tracker?branch=master)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Project Description
 Maintenance Tracker App is an application that provides users with the ability to reach out to operations or repairs department regarding repair or maintenance requests and monitor the status of their request.
