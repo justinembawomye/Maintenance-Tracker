@@ -6,7 +6,7 @@ import unittest
 import json
 from app.tests.BaseTest import BaseTest
 
-class TestUserRequests(BaseTest):
+class TestSingleRequests(BaseTest):
 
 	def test_if_URL_exists(self):
 		response = self.client.get('/api/v1/users/requests/1')

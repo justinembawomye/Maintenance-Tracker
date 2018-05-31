@@ -29,7 +29,6 @@ create_request_fail={
 create_request_successful={
         'success':True,
         'message':"Your request was submitted successfully.",
-        'token':123
         }
 requests = [{'id': 20003,'title': u'Range Rover','type': u'Repair','category': u'Cars','status':u'Completed'},{'id': 20004,'title': u'Samsung S7','type': u'Repair','category': u'Phones and Tablet','status':u'In Progress'}]
 
