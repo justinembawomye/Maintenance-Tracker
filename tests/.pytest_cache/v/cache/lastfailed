@@ -1,4 +1,0 @@
-{
-  "TestFlaskAppRequests.py::TestFlaskUserRequests::test_api_documentation": true,
-  "TestFlaskAppRequests.py::TestFlaskUserRequests::test_api_requests": true
-}

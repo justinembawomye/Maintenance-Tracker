@@ -11,7 +11,7 @@ class UserLoginRequest:
 
 	def onSuccess(self):
 		return{
-		'success':true
-		'message':"Logined in Succesfully."
+		'success':true,
+		'message':"Login Succesful.",
 		'token':123
 		}

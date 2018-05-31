@@ -1,6 +1,9 @@
 {
   "TestFlaskAppRequests.py::TestFlaskUserRequests::test_api_documentation": true,
   "TestFlaskAppRequests.py::TestFlaskUserRequests::test_api_requests": true,
+  "test_TestCreateRequest.py::TestUserRequests::test_api_check_non_authorised_user": true,
+  "test_TestCreateRequest.py::TestUserRequests::test_api_check_request": true,
+  "test_TestCreateRequest.py::TestUserRequests::test_if_URL_exists": true,
   "test_TestRegisterUser.py::TestRegisterUser::test_missing_params": true,
   "test_TestRegisterUser.py::TestRegisterUser::test_response_messages": true,
   "test_TestRegisterUser.py::TestRegisterUser::test_response_status": true,

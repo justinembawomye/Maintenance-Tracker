@@ -1,4 +1,9 @@
 [
-  "test_TestRequests.py::TestFlaskUserRequests::test_api_requests",
-  "test_TestRequests.py::TestFlaskUserRequests::test_if_URL_exists"
+  "test_TestCreateRequest.py::TestUserRequests::test_if_URL_exists",
+  "test_TestRequests.py::TestUserRequests::test_api_check_non_authorised_user",
+  "test_TestRequests.py::TestUserRequests::test_api_check_requests",
+  "test_TestRequests.py::TestUserRequests::test_if_URL_exists",
+  "test_TestSingleRequest.py::TestUserRequests::test_api_check_non_authorised_user",
+  "test_TestSingleRequest.py::TestUserRequests::test_api_check_request",
+  "test_TestSingleRequest.py::TestUserRequests::test_if_URL_exists"
 ]

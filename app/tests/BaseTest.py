@@ -19,23 +19,7 @@ class BaseTest(TestCase):
         self.context = self.app.app_context()
         self.context.push()
         self.client = self.app.test_client()
-        #self.new_user = self.create_user(USER_REGISTRATION_DETAILS)
-
-    def create_user(self, data):
-        return self.client.post(
-            '/api/v1/register',
-            data=json.dumps(data),
-            content_type='application/json'
-        )
-    def login_user(self, username, password):
-        return self.client.post(
-            '/api/v1/auth/login',
-            data=json.dumps(dict(
-                username=username,
-                password=password
-            )),
-            content_type='application/json'
-        )       
+  
     def tearDown(self):
         self.context.pop()
 

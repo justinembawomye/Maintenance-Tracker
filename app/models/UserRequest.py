@@ -7,8 +7,7 @@ class UserRequest:
 		self.requestStatus=requestStatus
 
 	def testDictionary(self):
-		self.testData ={}
-		
+	
 		return 	{
 		'id' : self.requestId,
 		'title' : self.requestTitle,
