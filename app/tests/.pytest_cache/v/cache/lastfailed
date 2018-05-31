@@ -1,0 +1,17 @@
+{
+  "TestFlaskAppRequests.py::TestFlaskUserRequests::test_api_documentation": true,
+  "TestFlaskAppRequests.py::TestFlaskUserRequests::test_api_requests": true,
+  "test_TestRegisterUser.py::TestRegisterUser::test_missing_params": true,
+  "test_TestRegisterUser.py::TestRegisterUser::test_response_messages": true,
+  "test_TestRegisterUser.py::TestRegisterUser::test_response_status": true,
+  "test_TestRegisterUser.py::TestRegisterUser::test_token_returned": true,
+  "test_TestRegisterUser.py::TestRegisterUser::test_user_exists": true,
+  "test_TestRequests.py::TestFlaskUserRequests::test_api_requests": true,
+  "test_TestUserLogin.py::BaseTest": true,
+  "test_TestUserLogin.py::TestLogin": true,
+  "test_TestUserLogin.py::TestLogin::test_empty_credentials": true,
+  "test_TestUserLogin.py::TestLogin::test_invalid_credentials": true,
+  "test_TestUserLogin.py::TestLogin::test_response_messages": true,
+  "test_TestUserLogin.py::TestLogin::test_response_status": true,
+  "test_TestUserLogin.py::TestLogin::test_token_returned": true
+}

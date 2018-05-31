@@ -1,0 +1,4 @@
+[
+  "test_TestRequests.py::TestFlaskUserRequests::test_api_requests",
+  "test_TestRequests.py::TestFlaskUserRequests::test_if_URL_exists"
+]
