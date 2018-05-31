@@ -1,0 +1,10 @@
+language: python
+python:
+  - "3.6.1"
+install:
+  - pip install -r requirements.txt
+  - python project.py
+script:
+  - nosetests --with-coverage --cover-package=app.api
+after_success:
+  coveralls
