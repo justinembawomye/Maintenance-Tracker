@@ -123,6 +123,7 @@ def api_modify_request(requestId):
                 return jsonify(create_request_fail)
         else:
             return jsonify(request_fail)
+    else:    
         return jsonify(auth_fail)
 
 if __name__ == '__main__':

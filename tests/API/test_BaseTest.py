@@ -25,4 +25,4 @@ class BaseTest(TestCase):
         )
         
     def tearDown(self):
-        self.app_context.pop()
+        self.context.pop()
