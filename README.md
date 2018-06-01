@@ -36,6 +36,28 @@ The Project has been tested on
 * Google Chromium (Version 66.0.3359.181)
 * Mozilla Firefox (Version 60.0.1 )
 
+## Instalation
+
+Clone the GitHub repo:
+ 
+`$ git clone https://github.com/Besufekadsm/Maintenance-Tracker`
+
+cd into the folder and install a Virtual Environment
+
+`$ virtualenv --python=python3 mtracker`
+
+Activate the virtual environment
+
+`$ mtracker/bin/activate`
+
+Install all application requirements from the requirements file found in the root folder
+
+`$ pip install -r requirements.txt`
+
+Start Server 
+
+`python progect.py`.
+
 ## GitHub Pages
 Go to [Maintenance-Tracker](https://besufekadsm.github.io/Maintenance-Tracker/)
 
