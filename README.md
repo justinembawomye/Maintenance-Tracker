@@ -1,7 +1,7 @@
 # Maintenance-Tracker 
 ---
 [![Codacy Badge](https://travis-ci.org/Besufekadsm/Maintenance-Tracker.svg?branch=master)]
-[![Build Status](https://travis-ci.org/Besufekadsm/Maintenance-Tracker.svg?branch=master)](https://travis-ci.org/Besufekadsm/Maintenance-Tracker)
+[![Build Status](https://travis-ci.org/travis-ci/travis-web.svg?branch=master)](https://travis-ci.org/Besufekadsm/Maintenance-Tracker)
 [![Coverage Status](https://coveralls.io/repos/github/Besufekadsm/Maintenance-Tracker/badge.svg?branch=master)](https://coveralls.io/github/Besufekadsm/Maintenance-Tracker?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -20,6 +20,16 @@ Maintenance Tracker App is an application that provides users with the ability t
 * **root:** The root folder contains all the html files of the project.
 * **design:** The design folder contains all the design files that have been developed before starting the project.
 * **static:** The static folder contains all the css,images and js for the project.   
+
+### API End Points Version 1
+
+Endpoint | Functionality| Access
+------------ | ------------- | -------------
+GET /api/v1/users/requests |Gets all requests of a specified user. | PUBLIC
+GET /api/v1/users/requests/<requestId> | get a specific request of a user | PUBLIC
+POST /api/v1/users/requests | Creates a new request| PRIVATE
+PUT /api/v1/users/requests/<requestId> | Modify a user request | PRIVATE
+POST /api/v1/login | Logs in a User | PUBLIC
 
 ## Tests
 The Project has been tested on
