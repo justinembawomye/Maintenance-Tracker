@@ -34,8 +34,8 @@ class TestModifyRequests(BaseTest):
 			response = self.client.put('/api/v1/users/requests/0',headers = head,data=request )
 			reply = json.loads(response.data.decode())
 			self.assertEquals(reply,{
-        'success':True,
-        'message':"Your request was submitted successfully."
+        'success':False,
+        'message':"All fields required."
         })
 
    
