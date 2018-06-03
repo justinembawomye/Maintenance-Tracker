@@ -1,36 +1,11 @@
 
 from flask import Flask, jsonify,request
-from app.models import *
+from app.models.Responses import * 
+import app.models.User import User
 
 app = Flask(__name__)
 
-#Request Responses
-login_successful={
-        'success':True,
-        'message':"Logined in Succesfully.",
-        'token':123
-        }
-login_fail={
-        'success':False,
-        'message':"Logined Failed."
-        }
-auth_fail={
-        'success':False,
-        'message':"You are not authorised to access this page."
-        }
-request_fail={
-        'success':False,
-        'message':"Not a valid Request ID."
-        }
-create_request_fail={
-        'success':False,
-        'message':"All fields required."
-        }
-create_request_successful={
-        'success':True,
-        'message':"Your request was submitted successfully.",
-        }
-requests = [{'id': 20003,'title': u'Range Rover','type': u'Repair','category': u'Cars','status':u'Completed'},{'id': 20004,'title': u'Samsung S7','type': u'Repair','category': u'Phones and Tablet','status':u'In Progress'}]
+
 
 
 #Making an API Endpoint (GET)
@@ -44,8 +19,10 @@ def api_login():
     username = data.get("username")
     password = data.get("password")
 
-    if username == "Bes":
-        if password == "1234567890":
+    user = searchList(username)
+
+    if user != None :
+        if user.verify_password(password):
             return jsonify(login_successful)
         else:
             return jsonify(login_fail)
@@ -104,10 +81,10 @@ def api_create_request():
 @app.route('/api/v1/users/requests/<requestId>', methods=['PUT'])
 def api_modify_request(requestId):
     data = request.args
-    requestTitle=data.get("title")
-    requestType = data.get("type")
-    requestCategory=data.get("category")
-    requestStatus=data.get("status")
+    requestTitle=data.get('title')
+    requestType = data.get('type')
+    requestCategory=data.get('category')
+    requestStatus=data.get('status')
 
     try:
         token = request.headers["Authorization"]
@@ -116,7 +93,7 @@ def api_modify_request(requestId):
 
     if token == '123':
         if int(requestId) < len(requests) and int(requestId) >= 0:   
-            if requestTitle!= None and requestType!= None and requestCategory!= None and requestStatus!= None:
+            if requestTitle != None and requestType != None and requestCategory!= None and requestStatus!= None:
                 return jsonify(create_request_successful)
             else:
                 return jsonify(create_request_fail)
@@ -125,5 +102,14 @@ def api_modify_request(requestId):
     else:    
         return jsonify(auth_fail)
 
+def searchList(username):
+    for item in self.users:
+        if item.getUserName() == username:
+            return item
+        else:
+            return None
+
 if __name__ == '__main__':
+    self.users=[]
+    self.requests=[]
     app.run(debug=True)
