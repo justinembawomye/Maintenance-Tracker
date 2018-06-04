@@ -1,13 +1,19 @@
 
 from flask import Flask, jsonify,request
 from app.models.Responses import * 
-import app.models.User import User
+from app.models.User import User
+from app.models.DataStore import DataStore
+import jwt
 
 app = Flask(__name__)
+temp_users=[User("Sam","Weinchester","sammy@gmail.com","Sam","123")]
+requests=[]
+data_store = DataStore(temp_users,requests)
+
+print(data_store.searchList("Sam").getUserName())
 
 
-
-
+print (data_store.getAllUsers()[0].getUserName())
 #Making an API Endpoint (GET)
 @app.route('/')
 def api_documentation():
@@ -19,11 +25,13 @@ def api_login():
     username = data.get("username")
     password = data.get("password")
 
-    user = searchList(username)
-
+    user = data_store.searchList(username)
     if user != None :
         if user.verify_password(password):
-            return jsonify(login_successful)
+            response = user.getDictionary()
+            response["token"]=data_store.generate_auth_token(response)
+            print(str(response))
+            return jsonify(response)
         else:
             return jsonify(login_fail)
     else:
@@ -102,14 +110,15 @@ def api_modify_request(requestId):
     else:    
         return jsonify(auth_fail)
 
-def searchList(username):
-    for item in self.users:
-        if item.getUserName() == username:
+
+
+def searchListToken(self,token):
+    for item in users:
+        if item.getToken() == username:
             return item
         else:
             return None
 
+
 if __name__ == '__main__':
-    self.users=[]
-    self.requests=[]
     app.run(debug=True)
