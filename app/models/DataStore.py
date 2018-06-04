@@ -8,18 +8,13 @@ from flask import request
 
 class DataStore:
 
-	#Initialize Data Store with dummy Data If Necessary
+	#Initialize Data Store with Dummy Data If Necessary
 	def __init__(self,users=[],requests=[]):
 		self.users=users
 		self.requests=requests
-		self.username_table = {u.username: u for u in users}
 		self.key="this_is_my_key"
 
-
-	def checkIfUserExists(self,user):
-		return {user.username: user for user in self.users}
-
-	
+	#Methods handling CRUD operations for Requests
 	def modifyRequest(self, user_request):
 		i=0
 		for req in self.requests:
@@ -59,6 +54,7 @@ class DataStore:
 			else:
 				return None
 
+	#Checking Authorization 
 	def generate_auth_token(self, user):
 		try:
 			payload ={
@@ -82,13 +78,10 @@ class DataStore:
 				token =request.headers['Authorization']
 			else:
 				return jsonify(login_fail), 401
-
 			try:
 				data = jwt.decode(token,self.key)
 				current_user = self.searchList(data['user']['username'])
-
 			except:
 				return jsonify(login_fail), 401
-
 			return func(current_user,*args,**kwargs)
 		return decorated
