@@ -8,37 +8,33 @@ from flask import request
 
 class DataStore:
 
+	#Initialize Data Store with dummy Data If Necessary
 	def __init__(self,users=[],requests=[]):
 		self.users=users
 		self.requests=requests
 		self.username_table = {u.username: u for u in users}
 		self.key="this_is_my_key"
-		#jwt = JWT(app, authenticate, identity)
-		#self.jwt = JWT(app, authenticate)
+
 
 	def checkIfUserExists(self,user):
 		return {user.username: user for user in self.users}
 
-	# def addUser(self,user):
-	# 	self.users.append(user)
-
-	# def removeUser(self,user):
 	
+	def modifyRequest(self, user_request):
+		i=0
+		for req in self.requests:
+			if req.getId() == user_request.getId():
+				self.requests[i]=user_request
+				return user_request.getDictionary()
+			i=i+1
+		return None
 
-	# def modifyUser(self,user):
-		
-
-	# def addRequest(self,request):
-	# 	self.requests.append()
-
-	# def removeRequest(self,request):
-		
-
-	# def modify(self,user):
-	# 	del self.users[]
 	def addRequest(self, req):
 		self.requests.append(req)
 		return req
+
+	def getRequestSize(self):
+		return len(requests)
 
 	def getAllUsers(self):
 		return self.users
@@ -46,9 +42,8 @@ class DataStore:
 	def getAllRequestsForUser(self,user):
 		response=[]
 		for req in self.requests:
-			print(user)
 			if req.getOwner() == user:
-				response.append(req.testDictionary())
+				response.append(req.getDictionary())
 		return response
 
 	def getASpecificRequestsForUser(self,requestId):
@@ -63,7 +58,6 @@ class DataStore:
 				return item
 			else:
 				return None
-
 
 	def generate_auth_token(self, user):
 		try:
@@ -98,18 +92,3 @@ class DataStore:
 
 			return func(current_user,*args,**kwargs)
 		return decorated
-
-	# @staticmethod
-	# def verify_auth_token(auth_token):
-	# 	try:
-	# 		payload = jwt.decode(auth_token, Config.SECRET_KEY)
-	# 		return payload['sub']
-	# 	except jwt.ExpiredSignatureError:
-	# 		return "Signature expired, please log in again!"
-	# 	except jwt.InvalidTokenError:
-	# 		return "Invalid token! Try again."
-
-	# def authenticate(username, password):
- #    	user = self.username_table.get(username, None)
- #    	if user and safe_str_cmp(user.password.encode('utf-8'), password.encode('utf-8')):
- #        	return user

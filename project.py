@@ -70,28 +70,28 @@ def api_create_request(current_user):
 
 @app.route('/api/v1/users/requests/<requestId>', methods=['PUT'])
 @data_store.token_required
-def api_modify_request(requestId):
+def api_modify_request(current_user,requestId):
     data = request.args
     requestTitle=data.get('title')
     requestType = data.get('type')
     requestCategory=data.get('category')
     requestStatus=data.get('status')
 
-    try:
-        token = request.headers["Authorization"]
-    except:
-        return jsonify(auth_fail)
+    req=UserRequest(requestTitle,requestType,requestCategory,requestStatus,current_user.getUserName(),requestId)  
 
-    if token == '123':
-        if int(requestId) < len(requests) and int(requestId) >= 0:   
-            if requestTitle != None and requestType != None and requestCategory!= None and requestStatus!= None:
-                return jsonify(create_request_successful)
-            else:
-                return jsonify(create_request_fail)
+    if requestTitle != None and requestType != None and requestCategory!= None and requestStatus!= None:
+        mod_req=data_store.modifyRequest(req)
+        if mod_req!=None:
+            print(mod_req)
+            create_request_successful['data']=mod_req
+            return jsonify(create_request_successful)
         else:
-            return jsonify(request_fail)
-    else:    
-        return jsonify(auth_fail)
+            print("This is The problem")
+            return jsonify(create_request_fail)
+    else:
+        return jsonify(create_request_fail)
+
+    
 
 
 if __name__ == '__main__':

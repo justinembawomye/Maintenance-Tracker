@@ -1,8 +1,8 @@
 import uuid
 
 class UserRequest:
-	def __init__(self,requestTitle,requestType,requestCategory,requestStatus,username):
-		self.requestId=str(uuid.uuid4())
+	def __init__(self,requestTitle,requestType,requestCategory,requestStatus,username,requestId= str(uuid.uuid4())):
+		self.requestId=requestId
 		self.requestTitle=requestTitle
 		self.requestType=requestType
 		self.requestCategory=requestCategory
@@ -10,7 +10,6 @@ class UserRequest:
 		self.owner=username
 
 	def getDictionary(self):
-	
 		return 	{
 		'id' : self.requestId,
 		'title' : self.requestTitle,
