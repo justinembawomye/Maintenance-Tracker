@@ -1,0 +1,7 @@
+{
+  "app/tests/test_TestCreateRequest.py": true,
+  "app/tests/test_TestLoginRequest.py": true,
+  "app/tests/test_TestModifyRequest.py": true,
+  "app/tests/test_TestRequests.py": true,
+  "app/tests/test_TestSingleRequest.py": true
+}

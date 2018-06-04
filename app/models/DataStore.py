@@ -2,6 +2,9 @@ from werkzeug.security import safe_str_cmp
 import jwt
 import datetime
 from flask import jsonify
+from app.models.Responses import * 
+from functools import wraps
+from flask import request
 
 class DataStore:
 
@@ -33,9 +36,26 @@ class DataStore:
 
 	# def modify(self,user):
 	# 	del self.users[]
+	def addRequest(self, req):
+		self.requests.append(req)
+		return req
 
 	def getAllUsers(self):
 		return self.users
+
+	def getAllRequestsForUser(self,user):
+		response=[]
+		for req in self.requests:
+			print(user)
+			if req.getOwner() == user:
+				response.append(req.testDictionary())
+		return response
+
+	def getASpecificRequestsForUser(self,requestId):
+		for req in self.requests:
+			if req.getId() == requestId:
+				return req.testDictionary()
+		return None
 
 	def searchList(self,username):
 		for item in self.users:
@@ -60,16 +80,34 @@ class DataStore:
 		except Exception as e:
 			return e
 
+	def token_required(self,func):
+		@wraps(func)
+		def decorated(*args,**kwargs):
+			token = None
+			if "Authorization" in request.headers:
+				token =request.headers['Authorization']
+			else:
+				return jsonify(login_fail), 401
 
-	@staticmethod
-	def verify_auth_token(auth_token):
-		try:
-			payload = jwt.decode(auth_token, Config.SECRET_KEY)
-			return payload['sub']
-		except jwt.ExpiredSignatureError:
-			return "Signature expired, please log in again!"
-		except jwt.InvalidTokenError:
-			return "Invalid token! Try again."
+			try:
+				data = jwt.decode(token,self.key)
+				current_user = self.searchList(data['user']['username'])
+
+			except:
+				return jsonify(login_fail), 401
+
+			return func(current_user,*args,**kwargs)
+		return decorated
+
+	# @staticmethod
+	# def verify_auth_token(auth_token):
+	# 	try:
+	# 		payload = jwt.decode(auth_token, Config.SECRET_KEY)
+	# 		return payload['sub']
+	# 	except jwt.ExpiredSignatureError:
+	# 		return "Signature expired, please log in again!"
+	# 	except jwt.InvalidTokenError:
+	# 		return "Invalid token! Try again."
 
 	# def authenticate(username, password):
  #    	user = self.username_table.get(username, None)

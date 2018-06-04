@@ -2,18 +2,16 @@
 from flask import Flask, jsonify,request
 from app.models.Responses import * 
 from app.models.User import User
-from app.models.DataStore import DataStore
+from app.models.UserRequest import UserRequest
+from app.models.DataStore import *
 import jwt
+
 
 app = Flask(__name__)
 temp_users=[User("Sam","Weinchester","sammy@gmail.com","Sam","123")]
-requests=[]
-data_store = DataStore(temp_users,requests)
+temp_requests=[UserRequest( "Samsung S7","Repair","Mobile Devices","In Progress","Sam"),UserRequest( "Range Rover","Repair","Cars","In Progress","Sam")]
+data_store = DataStore(temp_users,temp_requests)
 
-print(data_store.searchList("Sam").getUserName())
-
-
-print (data_store.getAllUsers()[0].getUserName())
 #Making an API Endpoint (GET)
 @app.route('/')
 def api_documentation():
@@ -33,60 +31,45 @@ def api_login():
             print(str(response))
             return jsonify(response)
         else:
-            return jsonify(login_fail)
+            return jsonify(login_fail), 401
     else:
-        return jsonify(login_fail)
+        return jsonify(login_fail) ,401
 
 
 @app.route('/api/v1/users/requests')
-def api_get_requests():
-    try:
-        token = request.headers["Authorization"]
-    except:
-        return jsonify(auth_fail)
+@data_store.token_required
+def api_get_requests(current_user):
+       # print(current_user)
+        return jsonify(data_store.getAllRequestsForUser(current_user.getUserName()))
 
-    if token == '123':
-        return jsonify(requests)
-    else:
-        return jsonify(auth_fail)
 
 @app.route('/api/v1/users/requests/<requestId>', methods=['GET'])
-def api_get_logged_in_user_requests(requestId):
-    try:
-        token = request.headers["Authorization"]
-    except:
-        return jsonify(auth_fail)
+@data_store.token_required
+def api_get_logged_in_user_requests(current_user,requestId):
 
-    if token == '123':
-        if int(requestId) < len(requests) and int(requestId) >= 0:   
-            return jsonify(requests[int(requestId)])
-        else:
-            return jsonify(request_fail)
-    else:
-        return jsonify(auth_fail)
+        return jsonify(data_store.getASpecificRequestsForUser(requestId))
 
 @app.route('/api/v1/users/requests', methods=['POST'])
-def api_create_request():
+@data_store.token_required
+def api_create_request(current_user):
     data = request.args
+
     requestTitle=data.get("title")
     requestType = data.get("type")
     requestCategory=data.get("category")
     requestStatus=data.get("status")
 
-    try:
-        token = request.headers["Authorization"]
-    except:
-        return jsonify(auth_fail)
-
-    if token == '123':
-        if requestTitle!= None and requestType!= None and requestCategory!= None and requestStatus!= None:
-            return jsonify(create_request_successful)
-        else:
-            return jsonify(create_request_fail)
+   
+    if requestTitle!= None and requestType!= None and requestCategory!= None and requestStatus!= None:
+        req =UserRequest(requestTitle,requestType,requestCategory,requestStatus,current_user.getUserName())
+        create_request_successful['data']=data_store.addRequest(req).getDictionary()
+        return jsonify(create_request_successful)
     else:
-        return jsonify(auth_fail)
+        return jsonify(create_request_fail)
+   
 
 @app.route('/api/v1/users/requests/<requestId>', methods=['PUT'])
+@data_store.token_required
 def api_modify_request(requestId):
     data = request.args
     requestTitle=data.get('title')
@@ -109,15 +92,6 @@ def api_modify_request(requestId):
             return jsonify(request_fail)
     else:    
         return jsonify(auth_fail)
-
-
-
-def searchListToken(self,token):
-    for item in users:
-        if item.getToken() == username:
-            return item
-        else:
-            return None
 
 
 if __name__ == '__main__':
