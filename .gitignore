@@ -1,3 +1,4 @@
 #Python Cache Files
 *.pyc
-__pycache__/*
+*__pycache__/*
+.*
