@@ -1,7 +1,7 @@
 # Maintenance-Tracker 
 ---
 [![Codacy Badge](https://travis-ci.org/Besufekadsm/Maintenance-Tracker.svg?branch=master)]
-[![Build Status](https://travis-ci.org/travis-ci/travis-web.svg?branch=master)](https://travis-ci.org/Besufekadsm/Maintenance-Tracker)
+[![Build Status](https://travis-ci.org/Besufekadsm/Maintenance-Tracker.svg?branch=master)](https://travis-ci.org/Besufekadsm/Maintenance-Tracker)
 [![Coverage Status](https://coveralls.io/repos/github/Besufekadsm/Maintenance-Tracker/badge.svg?branch=master)](https://coveralls.io/github/Besufekadsm/Maintenance-Tracker?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
