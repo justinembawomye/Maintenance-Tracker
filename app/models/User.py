@@ -1,13 +1,13 @@
 from passlib.apps import custom_app_context as pwd_context
 
 class User:
-	def __init__(self, firstName,lastName,email,username,password):
+	def __init__(self, firstName,lastName,email,username,password,is_admin=False):
 		self.firstName=firstName
 		self.lastName=lastName
 		self.email=email
 		self.username=username
 		self.password=self.hash_password(password)
-	#	self.token =self.generate_auth_token(username)
+		self.is_admin =is_admin
 
 	def getFirstName(self):
 		return self.firstName
