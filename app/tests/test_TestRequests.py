@@ -10,7 +10,7 @@ class TestUserRequests(BaseTest):
 
 	def test_if_URL_exists(self):
 		response = self.client.get('/api/v1/users/requests')
-		assert "200 OK" ==response.status
+		assert "401 UNAUTHORIZED" ==response.status
 
 	def test_api_check_non_authorised_user(self):
 		with self.client:
@@ -21,10 +21,13 @@ class TestUserRequests(BaseTest):
 
 	def test_api_check_requests(self):
 		with self.client:
-			head={'Authorization':'123'}
+			head={'Authorization':self.get_auth_token()}
 			response = self.client.get('/api/v1/users/requests',headers = head)
 			reply = json.loads(response.data.decode())
-			self.assertEquals(reply[1] ,{'category':'Phones and Tablet','id':20004,'status':'In Progress','title':'Samsung S7','type':"Repair"})
+			self.assertEquals(reply[1]['category'] ,'Cars')
+			self.assertEquals(reply[1]['status'],'In Progress')
+			self.assertEquals(reply[1]['title'],'Range Rover')
+			self.assertEquals(reply[1]['type'],"Repair")
 
    
 

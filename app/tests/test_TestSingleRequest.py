@@ -9,30 +9,23 @@ from app.tests.BaseTest import BaseTest
 class TestSingleRequests(BaseTest):
 
 	def test_if_URL_exists(self):
-		response = self.client.get('/api/v1/users/requests/1')
-		assert "200 OK" ==response.status
+		response = self.client.get('/api/v1/users/requests/{}'.format(self.get_request_id()))
+		assert "401 UNAUTHORIZED" ==response.status
 
 	def test_api_check_non_authorised_user(self):
 		with self.client:
-			response = self.client.get('/api/v1/users/requests/1')
+			response = self.client.get('/api/v1/users/requests/{}'.format(self.get_request_id()))
 			reply = json.loads(response.data.decode())
 			self.assertEquals(reply["success"],False)
 			self.assertEquals(reply["message"],"You are not authorised to access this page.")
 
-	def test_when_no_parameters_have_been_supplied(self):
-		with self.client:
-			head={'Authorization':'123'}
-			response = self.client.get('/api/v1/users/requests/1',headers = head)
-			reply = json.loads(response.data.decode())
-			self.assertEquals(reply,{'category':'Phones and Tablet','id':20004,'status':'In Progress','title':'Samsung S7','type':"Repair"})
-
-
 	def test_api_check_request(self):
 		with self.client:
-			head={'Authorization':'123'}
-			response = self.client.get('/api/v1/users/requests/1',headers = head)
+			head={'Authorization':self.get_auth_token()}
+			response = self.client.get('/api/v1/users/requests/{}'.format(self.get_request_id()),headers = head)
 			reply = json.loads(response.data.decode())
-			self.assertEquals(reply,{'category':'Phones and Tablet','id':20004,'status':'In Progress','title':'Samsung S7','type':"Repair"})
+			self.assertEquals(reply['success'],True)
+			self.assertEquals(reply['message'],'Your request was submitted successfully.')
 
    
 
