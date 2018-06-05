@@ -8,25 +8,24 @@ from app.models.User import User
 #       every API request and inherited by all API end point classes
 #
 ####################################################################################
+
+
 class BaseTest(TestCase):
-    
-    def create_app(self):
-        return app
-	##Setup Client and Context for test
+
+    # Setup Client and Context for test
     def setUp(self):
         self.app = app
         self.context = self.app.app_context()
         self.context.push()
         self.client = self.app.test_client()
   
-    #Release Context
+    # Release Context
     def tearDown(self):
         self.context.pop()
 
-    #Create token from login for testing pourposes
+    # Create token from login for testing pourposes
     def get_auth_token(self):
-        head={'Content-Type':'application/json'}      
-        response = self.client.post('/api/v1/login',content_type='application/json' ,data=json.dumps(dict(username='Sam',password='123')))
+        response = self.client.post('/api/v1/login',content_type='application/json', data=json.dumps(dict(username='Sam', password='123')))
         reply = json.loads(response.data.decode())
         self.assertEquals(reply['success'],True)
         if reply['success']:
@@ -34,7 +33,7 @@ class BaseTest(TestCase):
         else:
             return None
 
-    #Get Request Id for Test Pourposes
+    # Get Request Id for Test Pourposes
     def get_request_id(self):
         head={'Authorization':self.get_auth_token(),'content_type':'application/json'}
         request={'title': 'Range Rover','type': 'Repair','category': 'Cars','status':'Completed'}
@@ -43,8 +42,3 @@ class BaseTest(TestCase):
         assert "200 OK" ==response.status
         if reply['success']:
             return reply['data']['id']
-
-
-       
-
-    

@@ -14,6 +14,10 @@ class DataStore:
 		self.requests=requests
 		self.key="this_is_my_key"
 
+	def createUser(self,user):
+		self.users.append(user)
+		return user
+
 	#Methods handling CRUD operations for Requests
 	def modifyRequest(self, user_request):
 		i=0
@@ -44,7 +48,7 @@ class DataStore:
 	def getASpecificRequestsForUser(self,requestId):
 		for req in self.requests:
 			if req.getId() == requestId:
-				return req.testDictionary()
+				return req.getDictionary()
 		return None
 
 	def searchList(self,username):
@@ -77,11 +81,11 @@ class DataStore:
 			if "Authorization" in request.headers:
 				token =request.headers['Authorization']
 			else:
-				return jsonify(login_fail), 401
+				return jsonify(auth_fail), 401
 			try:
 				data = jwt.decode(token,self.key)
 				current_user = self.searchList(data['user']['username'])
 			except:
-				return jsonify(login_fail), 401
+				return jsonify(auth_fail), 401
 			return func(current_user,*args,**kwargs)
 		return decorated

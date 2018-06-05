@@ -15,12 +15,12 @@ from app.tests.BaseTest import BaseTest
 
 class TestSingleRequests(BaseTest):
 
-	#Test if the URL path is available 
+	# Test if the URL path is available
 	def test_if_URL_exists(self):
 		response = self.client.get('/api/v1/users/requests/{}'.format(self.get_request_id()))
 		assert "401 UNAUTHORIZED" ==response.status
 
-	#Test for non authenticated user
+	# Test for non authenticated user
 	def test_api_check_non_authorised_user(self):
 		with self.client:
 			response = self.client.get('/api/v1/users/requests/{}'.format(self.get_request_id()))
@@ -28,7 +28,7 @@ class TestSingleRequests(BaseTest):
 			self.assertEquals(reply["success"],False)
 			self.assertEquals(reply["message"],"You are not authorised to access this page.")
 
-	#Test for authenticated user 
+	# Test for authenticated user
 	def test_api_check_request(self):
 		with self.client:
 			head={'Authorization':self.get_auth_token()}
@@ -38,5 +38,4 @@ class TestSingleRequests(BaseTest):
 			self.assertEquals(reply['success'],True)
 			self.assertEquals(reply['message'],'Your request was submitted successfully.')
 
-   
 

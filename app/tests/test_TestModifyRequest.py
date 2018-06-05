@@ -13,12 +13,12 @@ from app.tests.BaseTest import BaseTest
 
 class TestModifyRequests(BaseTest):
 
-	#Check if URL path exists and is protected
+	# Check if URL path exists and is protected
 	def test_if_URL_exists(self):
 		response = self.client.put('/api/v1/users/requests/0' )
 		assert "401 UNAUTHORIZED" ==response.status
 
-	#test for a non authorized user
+	# test for a non authorized user
 	def test_api_check_non_authorised_user(self):
 		with self.client:
 			response = self.client.put('/api/v1/users/requests/0')
@@ -26,7 +26,7 @@ class TestModifyRequests(BaseTest):
 			self.assertEquals(reply["success"],False)
 			self.assertEquals(reply["message"],"You are not authorised to access this page.")
 
-	#Test for authorised user with no parameters
+	# Test for authorised user with no parameters
 	def test_api_when_no_parameters_have_been_passed(self):
 		with self.client:
 			head={'Authorization':self.get_auth_token()}
@@ -35,7 +35,7 @@ class TestModifyRequests(BaseTest):
 			self.assertEquals(reply['success'],False)
 			self.assertEquals(reply['message'],'All fields required.')
 
-	#Test for authenticated user with parameters
+	# Test for authenticated user with parameters
 	def test_api_when_parameters_have_been_passed(self):
 		with self.client:
 			head={'Authorization':self.get_auth_token()}
@@ -45,6 +45,4 @@ class TestModifyRequests(BaseTest):
 			assert "200 OK" ==response.status
 			self.assertEquals(reply['success'],True)
 			self.assertEquals(reply['message'],"Your request was submitted successfully.")
-
-   
 

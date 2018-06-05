@@ -1,8 +1,11 @@
 #Request Responses
+registration_successful={
+        'success':True,
+        'message':"User Registered Succesfully.",
+        }
 login_successful={
         'success':True,
         'message':"Logined in Succesfully.",
-        'token':123
         }
 login_fail={
         'success':False,

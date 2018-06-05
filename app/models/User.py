@@ -50,7 +50,14 @@ class User:
 		'last_name' : self.lastName,
 		'email' : self.email,
 		'username' : self.username
-		#'token':self.token
+		}
+	def getTestDictionary(self):		
+		return{
+		'first_name' : self.firstName,
+		'last_name' : self.lastName,
+		'email' : self.email,
+		'username' : self.username,
+		'password' : self.password
 		}
 	def verify_password(self, password):
 		return pwd_context.verify(password, self.password)
