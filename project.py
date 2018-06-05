@@ -8,7 +8,7 @@ import jwt
 
 
 app = Flask(__name__)
-temp_users=[User("Administrator","Mtracker","admin@mtracker.com","admin","123",True),User("Sam","Weinchester","sammy@gmail.com","Sam","123")]
+temp_users=[User("Sam","Weinchester","sammy@gmail.com","Sam","123",True)]
 temp_requests=[UserRequest( "Samsung S7","Repair","Mobile Devices","In Progress","Sam"),UserRequest( "Range Rover","Repair","Cars","In Progress","Sam")]
 data_store = DataStore(temp_users,temp_requests)
 
